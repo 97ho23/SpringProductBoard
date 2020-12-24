@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yjh.mapper.ProductMapper">
+	<select id="getList" resultType="com.yjh.domain.ProductVO">
+	<![CDATA[
+	select * from tbl_wproduct_yjh where pid > 0
+	]]>
+	</select>
+
+	<insert id="insert">
+		insert into tbl_wproduct_yjh(pid, pname, psort, manufacture, price,	saleprice, info)
+		values (seq_wproduct_pid.nextval, #{pname}, #{psort}, #{manufacture}, #{price}, #{saleprice}, #{info})
+	</insert>
+
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="pid" order="BEFORE"
+			resultType="long">
+			select seq_wproduct_pid.nextval from dual
+		</selectKey>
+		insert into tbl_wproduct_yjh(pid, pname, psort, manufacture, price,	saleprice, info)
+		values (#{pid}, #{pname}, #{psort}, #{manufacture}, #{price}, #{saleprice}, #{info})
+	</insert>
+
+	<select id="read" resultType="com.yjh.domain.ProductVO">
+		select * from tbl_wproduct_yjh where pid = #{pid}
+	</select>
+
+	<delete id="delete">
+		delete tbl_wproduct_yjh where pid = #{pid}
+	</delete>
+
+	<update id="update">
+		update tbl_wproduct_yjh 
+		set pname = #{pname},
+    	psort = #{psort},
+    	manufacture = #{manufacture},
+    	price = #{price},
+    	saleprice = #{saleprice},
+    	info = #{info}
+		where pid = #{pid}
+	</update>
+</mapper>
