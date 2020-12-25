@@ -30,7 +30,7 @@ values (seq_wproduct_pid.nextval, 'iPhone 9s', '스마트폰', 'Apple', 999000, 
 select seq_wproduct_pid.nextval from dual; -- pid�� ��ȸ��(if:6)�� �Ʒ� insert�� �Է�
 
 insert into tbl_wproduct_yjh(pid, pname, psort, manufacture, price, saleprice, info)
-values (4, 'Galaxy Note8','스마트폰', 'Samsung', 899000, 790000, '4G');
+values (1, 'Galaxy Note20 5G','스마트폰', 'Samsung', 1199000, 880000, '삼성버즈, 스마트워치 중 택 1 무료선물');
 
 
 --��ü ��ȸ

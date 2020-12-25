@@ -25,9 +25,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public ProductVO get(Long bno) {
+	public ProductVO get(Long pid) {
 		log.info("ProductServic get ......................");
-		return mapper.read(bno);
+		return mapper.read(pid);
 	}
 
 	@Override
@@ -42,9 +42,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public boolean remove(Long bno) {
+	public boolean remove(Long pid) {
 		log.info("ProductService remove ......................");
-		int cnt = mapper.delete(bno);
+		int cnt = mapper.delete(pid);
 		log.info("ProductService remove ......................");
 		if (cnt >= 0)
 			return true;
